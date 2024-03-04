@@ -1,20 +1,16 @@
 """
-E+H Messtechnik-Messemodell IoT - DHBW Lörrach
-
-Projektrealisierung WWI21A
-2024 - Lounis Ammour, Marvin Kern 
+DHBW Lörrach - E+H Messtechnik-Messemodell
+Projektrealisierung WWI21A | Lounis Ammour, Marvin Kern | März 2024
 
 """
 from machine import Pin, ADC, SoftI2C
 import ssd1306
 import time
 import network
-import dht
 import ujson
 import machine
 from umqtt.simple import MQTTClient
 
-# Konstanten
 WLAN_SSID = "DHBW-Loe-EH-Messemodell"
 WLAN_PASSWORD = "dhbw2024"
 MQTT_CLIENT_ID = "client"
@@ -22,6 +18,7 @@ MQTT_BROKER = "192.168.220.1"
 MQTT_USER = "dhbw-loe-eh-messemodell"
 MQTT_PASSWORD = "dhbw2024"
 MQTT_PUB_TOPIC = "data"
+MQTT_PUB_TOPIC_INPUT = "input_mode_esp"
 MQTT_SUB_TOPIC = "input_mode"
 OLED_TITLE = "DHBW Messemodell"
 
@@ -74,7 +71,7 @@ def connect_mqtt():
   time.sleep(2)
   return client
 
-# Callback Funktion für MQTT: Subscribe to input_mode topic
+# Callback für MQTT: Subscribe to input_mode topic
 def sub_cb(topic, msg):
   global demo_mode
   print(f'MQTT | Incoming message from {topic}: {msg}')
@@ -92,17 +89,24 @@ def restart():
 
 # Calculate flowrate
 def calc_flowrate(adc_value):
-    return round((9.5 / 4096.0 * float(adc_value) + 0.5), 2)
+    return 0 if float(adc_value) < 0.5 else round((9.5 / 4095.0 * float(adc_value) + 0.5), 2)
 
 def main():
   print("OS | Starting...")
-  update_oled(3, 'OS', 'Starting...')
-  time.sleep(2)
+  update_oled(3, 'OS', 'Starting')
+  animation_counter = 0
+  while animation_counter < 10:
+    animation_counter += 1
+    oled.text('.' * (animation_counter % 4), 65, 40)
+    oled.show()
+    if animation_counter % 4 == 0: update_oled(3, 'OS', 'Starting')
+    time.sleep(0.1)
   connect_wifi()
 
-  # Try to connect to MQTT-Server
+  # Connect to MQTT-Server
   try:
     client = connect_mqtt()
+    client.publish(MQTT_PUB_TOPIC_INPUT, f"{demo_mode}")
   except OSError as e:
     print('MQTT | Failed to connect to MQTT broker. Restarting...')
     update_oled(3, 'MQTT', 'Failed to', 'connect!')
@@ -110,17 +114,19 @@ def main():
     restart()
 
   while True:
-    try:   
+    try:           
       flowrate = calc_flowrate((pot_rma42.read() if demo_mode else pot_poti.read()))
       update_oled(1, f'Input: {('POTI' if demo_mode else 'EH-RMA42')}', '', '', 'Flowrate:', f'{flowrate} m/s')
-
       message = ujson.dumps({"flowrate": flowrate})
       #print("MQTT | Reporting to MQTT topic {}: {}".format(MQTT_PUB_TOPIC, message))
+      if not network.WLAN(network.STA_IF).isconnected():
+        print('Network | Connection lost. Restarting...')
+        update_oled(3, 'WLAN', 'Connection lost!')
+        time.sleep(5)
+        restart()
       client.publish(MQTT_PUB_TOPIC, message)
-
       client.check_msg()
       time.sleep(0.1)
-      
     except OSError as e:
       restart()
     
