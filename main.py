@@ -23,17 +23,17 @@ MQTT_SUB_TOPIC = "input_mode"
 OLED_TITLE = "DHBW Messemodell"
 
 demo_mode = False
-pot_rma42 = ADC(Pin(34))   # POTI 32
+pot_rma42 = ADC(Pin(34))
 pot_poti = ADC(Pin(32))
 # Full range: 3.3v
 pot_rma42.atten(ADC.ATTN_11DB)    
 pot_poti.atten(ADC.ATTN_11DB)
 
-# OLED Display Initialisierung
+# OLED Display
 i2c = SoftI2C(scl=Pin(22), sda=Pin(21))   # ESP32 Pin assignment
 oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 
-# OLED aktualisieren
+# Update OLED Helper-Function
 def update_oled(start, *lines):
     oled.fill(0)
     oled.text(f'{OLED_TITLE}', 0, 0)
@@ -60,7 +60,7 @@ def connect_wifi():
   update_oled(3, 'WLAN', 'Connected!')
   time.sleep(2)
 
-# MQTT Startup
+# MQTT Connection
 def connect_mqtt():
   print("MQTT | Connecting to MQTT broker... ")
   update_oled(3, 'MQTT', 'Connecting...')
@@ -73,7 +73,7 @@ def connect_mqtt():
   time.sleep(2)
   return client
 
-# Callback für MQTT: Subscribe to input_mode topic
+# Callback for MQTT: Subscribe to input_mode topic
 def sub_cb(topic, msg):
   global demo_mode
   print(f'MQTT | Incoming message from {topic}: {msg}')
@@ -119,15 +119,19 @@ def main():
     try:           
       flowrate = calc_flowrate((pot_poti.read() if demo_mode else pot_rma42.read()))
       update_oled(1, f'Input: {('POTI' if demo_mode else 'EH-RMA42')}', '', '', 'Flowrate:', f'{flowrate} m/s')
+
       message = ujson.dumps({"flowrate": flowrate})
       print("MQTT | Reporting to MQTT topic {}: {}".format(MQTT_PUB_TOPIC, message))
+
       if not network.WLAN(network.STA_IF).isconnected():
         print('Network | Connection lost. Restarting...')
         update_oled(3, 'WLAN', 'Connection lost!')
         time.sleep(5)
         restart()
+      
       client.publish(MQTT_PUB_TOPIC, message)
       client.check_msg()
+      
       time.sleep(0.1)
     except OSError as e:
       restart()
