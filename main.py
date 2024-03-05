@@ -23,9 +23,11 @@ MQTT_SUB_TOPIC = "input_mode"
 OLED_TITLE = "DHBW Messemodell"
 
 demo_mode = False
-pot_rma42 = ADC(Pin(32))
-pot_poti = ADC(Pin(34))
-pot_rma42.atten(ADC.ATTN_11DB)    # Full range: 3.3v
+pot_rma42 = ADC(Pin(34))   # POTI 32
+pot_poti = ADC(Pin(32))
+# Full range: 3.3v
+pot_rma42.atten(ADC.ATTN_11DB)    
+pot_poti.atten(ADC.ATTN_11DB)
 
 # OLED Display Initialisierung
 i2c = SoftI2C(scl=Pin(22), sda=Pin(21))   # ESP32 Pin assignment
@@ -115,10 +117,10 @@ def main():
 
   while True:
     try:           
-      flowrate = calc_flowrate((pot_rma42.read() if demo_mode else pot_poti.read()))
+      flowrate = calc_flowrate((pot_poti.read() if demo_mode else pot_rma42.read()))
       update_oled(1, f'Input: {('POTI' if demo_mode else 'EH-RMA42')}', '', '', 'Flowrate:', f'{flowrate} m/s')
       message = ujson.dumps({"flowrate": flowrate})
-      #print("MQTT | Reporting to MQTT topic {}: {}".format(MQTT_PUB_TOPIC, message))
+      print("MQTT | Reporting to MQTT topic {}: {}".format(MQTT_PUB_TOPIC, message))
       if not network.WLAN(network.STA_IF).isconnected():
         print('Network | Connection lost. Restarting...')
         update_oled(3, 'WLAN', 'Connection lost!')
