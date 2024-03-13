@@ -91,7 +91,8 @@ def restart():
 
 # Calculate flowrate
 def calc_flowrate(adc_value):
-    return 0 if float(adc_value) < 0.5 else round((9.5 / 4095.0 * float(adc_value) + 0.5), 2)
+  flow_rate = 0 if float(adc_value) < 0.5 else round((9.5 / 4095.0 * float(adc_value) + 0.5), 2)
+  return "{:.2f}".format(flow_rate)
 
 def main():
   print("OS | Starting...")
