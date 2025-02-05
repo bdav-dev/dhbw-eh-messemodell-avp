@@ -1,0 +1,605 @@
+[
+    {
+        "id": "1c3814cb9ac74556",
+        "type": "tab",
+        "label": "Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8f4058279317b1bc",
+        "type": "group",
+        "z": "1c3814cb9ac74556",
+        "name": "REST-API",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "86d261f77b0c3f98",
+            "50e3b8bc5c2da635",
+            "94c6c3b51503104c",
+            "f40d6d4db3b29fb2",
+            "68c1edd05dac5106",
+            "5268b501e7be4f05",
+            "e7c3c4d4eeb04153"
+        ],
+        "x": 94,
+        "y": 179,
+        "w": 552,
+        "h": 222
+    },
+    {
+        "id": "7fda5dd4d17ea99c",
+        "type": "group",
+        "z": "1c3814cb9ac74556",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "7fa1ca812e34e25a",
+            "6ca7d08d6013903a",
+            "c4a178c7e7de0b8b",
+            "f1b26469321614a2"
+        ],
+        "x": 94,
+        "y": 559,
+        "w": 772,
+        "h": 122
+    },
+    {
+        "id": "6ad04c60f9081cd1",
+        "type": "group",
+        "z": "1c3814cb9ac74556",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "fb7b99c30f95e21f",
+            "e38fd854fc96338b",
+            "36216a6351d26e26",
+            "decc858afdef5b4b"
+        ],
+        "x": 94,
+        "y": 419,
+        "w": 532,
+        "h": 122
+    },
+    {
+        "id": "ee97fa2e9e710342",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ea55792e16aae8fc",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#e2001a",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#e2001a",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#e2001a",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#e2001a",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#ff2f47",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#e2001a",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD.MM.YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "237d62b24946d977",
+        "type": "ui_group",
+        "name": "Settings",
+        "tab": "58f7a2d61899393f",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2886245230f0d5bd",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "58f7a2d61899393f",
+        "type": "ui_tab",
+        "name": "Settings",
+        "icon": "settings",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "171d6167aac8afa8",
+        "type": "ui_group",
+        "name": "Flowrate",
+        "tab": "ee97fa2e9e710342",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8a55e0cff8004c12",
+        "type": "ui_spacer",
+        "z": "1c3814cb9ac74556",
+        "name": "spacer",
+        "group": "171d6167aac8afa8",
+        "order": 2,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "fb7b99c30f95e21f",
+        "type": "ui_gauge",
+        "z": "1c3814cb9ac74556",
+        "g": "6ad04c60f9081cd1",
+        "name": "",
+        "group": "171d6167aac8afa8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Current Flowrate",
+        "label": "m/s",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#6699ff",
+            "#3366ff",
+            "#0033ff"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 510,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e38fd854fc96338b",
+        "type": "ui_chart",
+        "z": "1c3814cb9ac74556",
+        "g": "6ad04c60f9081cd1",
+        "name": "",
+        "group": "171d6167aac8afa8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Trend: Last Minute",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No data available",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "10",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#e2001a",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 510,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "36216a6351d26e26",
+        "type": "mqtt in",
+        "z": "1c3814cb9ac74556",
+        "g": "6ad04c60f9081cd1",
+        "name": "",
+        "topic": "data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2886245230f0d5bd",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 480,
+        "wires": [
+            [
+                "decc858afdef5b4b"
+            ]
+        ]
+    },
+    {
+        "id": "decc858afdef5b4b",
+        "type": "function",
+        "z": "1c3814cb9ac74556",
+        "g": "6ad04c60f9081cd1",
+        "name": "function 1",
+        "func": "var frate = msg.payload.flowrate;\nglobal.set(\"flowrate\", frate);\nmsg.payload = frate;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 480,
+        "wires": [
+            [
+                "fb7b99c30f95e21f",
+                "e38fd854fc96338b"
+            ]
+        ]
+    },
+    {
+        "id": "7fa1ca812e34e25a",
+        "type": "mqtt out",
+        "z": "1c3814cb9ac74556",
+        "g": "7fda5dd4d17ea99c",
+        "name": "",
+        "topic": "flowrate_input_mode",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2886245230f0d5bd",
+        "x": 740,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "6ca7d08d6013903a",
+        "type": "mqtt in",
+        "z": "1c3814cb9ac74556",
+        "g": "7fda5dd4d17ea99c",
+        "name": "",
+        "topic": "flowrate_input_mode_set_initial",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2886245230f0d5bd",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 640,
+        "wires": [
+            [
+                "f1b26469321614a2"
+            ]
+        ]
+    },
+    {
+        "id": "c4a178c7e7de0b8b",
+        "type": "ui_template",
+        "z": "1c3814cb9ac74556",
+        "g": "7fda5dd4d17ea99c",
+        "group": "237d62b24946d977",
+        "name": "Info-Text",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<p>\n    Hier kann der Eingang für die Flussrate gewählt werden.\n\n    <ul>\n        <li>\n            <span style=\"font-weight: bold\">2-Pin Eingang</span><br/>\n            An den 2-Pin Eingang wird das E+H Messgerät angeschlossen und stellt somit die echte Flussrate dar.\n            <br/><br/>\n        </li>\n        <li>\n            <span style=\"font-weight: bold\">Potentiometer (Simulationsmodus)</span><br/>\n            Mit diesem Modus wird die Flussrate anhand des Potientometers auf dem ESP32-Board simuliert.\n            <br/><br/>\n        </li>\n        <li>\n            <span style=\"font-weight: bold\">Pumpeneinstellung (Simulationsmodus)</span><br/>\n            Mit diesem Modus wird die Flussrate anhand der per MQTT einkommenden Pumpenwerte simuliert.\n        </li>\n    </ul>\n</p>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 180,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "86d261f77b0c3f98",
+        "type": "http in",
+        "z": "1c3814cb9ac74556",
+        "g": "8f4058279317b1bc",
+        "name": "",
+        "url": "/flowrate",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 220,
+        "wires": [
+            [
+                "50e3b8bc5c2da635"
+            ]
+        ]
+    },
+    {
+        "id": "94c6c3b51503104c",
+        "type": "http response",
+        "z": "1c3814cb9ac74556",
+        "g": "8f4058279317b1bc",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 560,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "50e3b8bc5c2da635",
+        "type": "function",
+        "z": "1c3814cb9ac74556",
+        "g": "8f4058279317b1bc",
+        "name": "function 2",
+        "func": "let flowrate = global.get(\"flowrate\");\nmsg.payload.flowrate = parseFloat(flowrate) ?? 0.0;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 220,
+        "wires": [
+            [
+                "94c6c3b51503104c"
+            ]
+        ]
+    },
+    {
+        "id": "f40d6d4db3b29fb2",
+        "type": "http in",
+        "z": "1c3814cb9ac74556",
+        "g": "8f4058279317b1bc",
+        "name": "",
+        "url": "/pumpctrl",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "68c1edd05dac5106",
+                "e7c3c4d4eeb04153"
+            ]
+        ]
+    },
+    {
+        "id": "68c1edd05dac5106",
+        "type": "function",
+        "z": "1c3814cb9ac74556",
+        "g": "8f4058279317b1bc",
+        "name": "function 3",
+        "func": "\nmsg.payload = msg.payload.signal;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 360,
+        "wires": [
+            [
+                "5268b501e7be4f05"
+            ]
+        ]
+    },
+    {
+        "id": "e7c3c4d4eeb04153",
+        "type": "http response",
+        "z": "1c3814cb9ac74556",
+        "g": "8f4058279317b1bc",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 560,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "5268b501e7be4f05",
+        "type": "mqtt out",
+        "z": "1c3814cb9ac74556",
+        "g": "8f4058279317b1bc",
+        "name": "",
+        "topic": "pumpctrl",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2886245230f0d5bd",
+        "x": 560,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f1b26469321614a2",
+        "type": "ui_dropdown",
+        "z": "1c3814cb9ac74556",
+        "g": "7fda5dd4d17ea99c",
+        "name": "",
+        "label": "Flowrate-Eingang",
+        "tooltip": "",
+        "place": "Eingang",
+        "group": "237d62b24946d977",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "2-Pin Eingang",
+                "value": 0,
+                "type": "num"
+            },
+            {
+                "label": "Potentiometer (Simulationsmodus)",
+                "value": 1,
+                "type": "num"
+            },
+            {
+                "label": "Pumpeneinstellung (Simulationsmodus)",
+                "value": 2,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 510,
+        "y": 640,
+        "wires": [
+            [
+                "7fa1ca812e34e25a"
+            ]
+        ]
+    }
+]
