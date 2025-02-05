@@ -27,7 +27,7 @@
         "x": 94,
         "y": 179,
         "w": 552,
-        "h": 222
+        "h": 202
     },
     {
         "id": "7fda5dd4d17ea99c",
@@ -49,7 +49,7 @@
             "f1b26469321614a2"
         ],
         "x": 94,
-        "y": 559,
+        "y": 579,
         "w": 772,
         "h": 122
     },
@@ -389,7 +389,7 @@
         "expiry": "",
         "broker": "2886245230f0d5bd",
         "x": 740,
-        "y": 640,
+        "y": 660,
         "wires": []
     },
     {
@@ -407,7 +407,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 250,
-        "y": 640,
+        "y": 660,
         "wires": [
             [
                 "f1b26469321614a2"
@@ -431,7 +431,7 @@
         "templateScope": "local",
         "className": "",
         "x": 180,
-        "y": 600,
+        "y": 620,
         "wires": [
             []
         ]
@@ -472,7 +472,7 @@
         "z": "1c3814cb9ac74556",
         "g": "8f4058279317b1bc",
         "name": "function 2",
-        "func": "let flowrate = global.get(\"flowrate\");\nmsg.payload.flowrate = parseFloat(flowrate) ?? 0.0;\nreturn msg;",
+        "func": "let flowrate = global.get(\"flowrate\");\nmsg.payload.flowrate = parseFloat(flowrate) || 0.0;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -512,7 +512,7 @@
         "z": "1c3814cb9ac74556",
         "g": "8f4058279317b1bc",
         "name": "function 3",
-        "func": "\nmsg.payload = msg.payload.signal;\n\nreturn msg;",
+        "func": "msg.payload = msg.payload.pumpSetting;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -520,7 +520,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 360,
+        "y": 340,
         "wires": [
             [
                 "5268b501e7be4f05"
@@ -555,7 +555,7 @@
         "expiry": "",
         "broker": "2886245230f0d5bd",
         "x": 560,
-        "y": 360,
+        "y": 340,
         "wires": []
     },
     {
@@ -595,7 +595,7 @@
         "topicType": "msg",
         "className": "",
         "x": 510,
-        "y": 640,
+        "y": 660,
         "wires": [
             [
                 "7fa1ca812e34e25a"
