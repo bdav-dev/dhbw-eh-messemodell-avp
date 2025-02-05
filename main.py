@@ -66,17 +66,17 @@ def set_pumplevel(value):
   global flowrate_pumpsetting_simulation_value
 
   try:
-    int_value = int(value)
+    float_value = float(value)
   except:
     return
 
-  if int_value < 0:
-    int_value = 0
-  elif int_value > 100:
-    int_value = 100
+  if float_value < 0:
+    float_value = 0
+  elif float_value > 100:
+    float_value = 100
 
-  pump_pin.duty(int(1023 * (int_value / 100)))
-  flowrate_pumpsetting_simulation_value = int_value / 100 * 4095
+  pump_pin.duty(int(1023 * (float_value / 100)))
+  flowrate_pumpsetting_simulation_value = float_value / 100 * 4095
 
 # OLED aktualisieren
 def update_oled(start, *lines):
@@ -122,7 +122,6 @@ def connect_mqtt():
 # Callback für MQTT: Subscribe to input_mode topic
 def sub_cb(topic, msg):
   global flowrate_input_mode
-  global pump_level
   
   print(f'MQTT | Incoming message from {topic}: {msg}')
   if topic == MQTT_SUB_TOPIC_FLOWRATE_INPUT_MODE.encode("UTF-8"):
@@ -142,7 +141,6 @@ def restart():
 def calc_flowrate(adc_value):
   flow_rate = 0 if float(adc_value) < 0.5 else round((9.5 / 4095.0 * float(adc_value) + 0.5), 2)
   return "{:.2f}".format(flow_rate)
-  #return 0 if float(adc_value) < 0.5 else round((9.5 / 4095.0 * float(adc_value) + 0.5), 2)
 
 def main():
   print("OS | Starting...")
