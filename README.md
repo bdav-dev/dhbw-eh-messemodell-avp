@@ -5,7 +5,7 @@ Dieses Projekt erweitert das Projekt des geforkten Repositories, sodass ein E+H 
 
 Dieses Repository enthält Code für zwei Mikrocontroller:  
 
-## ESP-WROOM-32
+## ESP32-WROOM-32
 Wird als **MQTT-Client** eingesetzt.
 
 ### Erforderliche Mikrocontroller-Software
