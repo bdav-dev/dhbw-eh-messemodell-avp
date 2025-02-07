@@ -31,7 +31,7 @@ Siehe `node-red`-Ordner.
 <br/>
 <br/>
 
-> Entwickelt im Rahmen der **Studienarbeit** im **6. Semester** an der **DHBW Lörrach**  
+> Entwickelt im Rahmen der **Studienarbeit** im **5. & 6. Semester** an der **DHBW Lörrach**  
 > von **Musa Akyürek** und **David Berezowski**
 > 
 > Siehe auch: [pumpctrl-avp](https://github.com/bdav-dev/pumpctrl-avp/)  
