@@ -29,7 +29,7 @@ In Node-RED entwickelte Logik lässt sich als eine JSON-Datei exportieren bzw. i
 Siehe `node-red`-Ordner.  
 
 <br/>
-<br/>
+<hr/>
 
 > Entwickelt im Rahmen der **Studienarbeit** im **5. & 6. Semester** an der **DHBW Lörrach**  
 > von **Musa Akyürek** und **David Berezowski**
