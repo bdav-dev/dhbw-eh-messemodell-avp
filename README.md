@@ -14,6 +14,7 @@ Wird als **MQTT-Client** eingesetzt.
 ### Verwendete Entwicklertools
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [PyMakr Extension](https://docs.pycom.io/gettingstarted/software/vscode/) für Visual Studio Code
+- [Node.js](https://nodejs.org/)
 
 
 ## Raspberry Pi Zero W
